@@ -18,52 +18,27 @@ public class ex01 {
 			int employee = scn.nextInt();
 			int kind = scn.nextInt();
 			int data[] = new int [kind];
+			int v1 , sum = 0;
 			for(int j = 0 ; j < kind ; j++){
 				data[j] = scn.nextInt();
 			}
-			for(int a = 0 ; a < data.length ; a++){
-				
+			for(int k = 0 ; k < data.length - 1 ; k++){
+				for(int j = 0 ; j < data.length - 1 ; j++)
+					if(data[j] > data[j + 1]){
+						v1 = data[j + 1];
+						data[j+1]=data[j];
+						data[j]=v1;
+					}
+			}
+			for(int s = 0 ; s < employee ; s++){
+				sum = sum + data[s];
+			}
+			if(sum <= T){
+				System.out.println(sum);
+			}else{
+				System.out.println("Impossible!");
 			}
 		}
-//		System.out.print("請問要測試幾次?");
-//		int n = scn.nextInt();
-//		for(int i = 0 ; i < n ; i++){
-//			ArrayList<Integer> giftList = new ArrayList<Integer>();
-//			System.out.println("請輸入預算,購買的禮物數量,禮物的種類:");
-//			int T = scn.nextInt();
-//			int employee = scn.nextInt();
-//			int kind = scn.nextInt();
-//			for(int j = 0 ; j < kind ; j++){
-//				int gift = scn.nextInt();
-//				if(giftList.size() == 0){
-//					giftList.add(gift);
-//				}else if(giftList.size() == 1){
-//					if(giftList.get(0) > gift){
-//						giftList.add(gift);
-//					}else{
-//						giftList.add(0,gift);
-//					}
-//				}else{
-//					boolean check = true;
-//					int a = 0;
-//					while(check && a < giftList.size()-1){
-//						if(a == 0 && giftList.get(0) < gift){
-//							giftList.add(0,gift);
-//							check = false;
-//						}else{
-//							if(giftList.get(a) > gift && giftList.get(a+1) <= gift){
-//								check = false;
-//								giftList.add(a+1,gift);
-//							}else{
-//								a++;
-//							}
-//						}
-//					}
-//				}
-//			}
-//			for(int k = 0 ; k < giftList.size() ; k++){
-//				System.out.print(giftList.get(k)+"\t");
-//			}
 //			int sum = 0;
 //			int l = giftList.size();
 //			for(int j = 0 ; j < employee ; j++){
